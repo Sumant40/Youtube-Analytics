@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+
+.env
+config.py
+
+logs/*
+!logs/.gitkeep
+
+.ipynb_checkpoints/
+.venv/
+venv/

@@ -1,0 +1,2 @@
+-- Create tables for the YouTube ETL pipeline.
+-- Add CREATE TABLE statements here.
