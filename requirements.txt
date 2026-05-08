@@ -1,6 +1,5 @@
-google-api-python-client
-pandas
-SQLAlchemy
-psycopg2-binary
-python-dotenv
-jupyter
+google-api-python-client 
+pandas 
+sqlalchemy 
+psycopg2-binary  
+isodate
