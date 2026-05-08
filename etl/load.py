@@ -44,9 +44,15 @@ def load_videos(df: pd.DataFrame) -> dict:
                 """)
                 result = conn.execute(stmt, row.to_dict())
                 if result.rowcount > 0:
-                    inserted += 1
-                else:
-                    skipped += 1
+                    # check if it was a true insert or an update
+                    check = conn.execute(
+                        text("SELECT extracted_at FROM trending_videos WHERE video_id = :vid"),
+                        {"vid": row["video_id"]}
+                    ).fetchone()
+                    if check and check[0] == row["extracted_at"]:
+                        inserted += 1
+                    else:
+                        skipped += 1  # was updated, not new
             except Exception as e:
                 logger.error(f"Insert error {row['video_id']}: {e}")
         conn.commit()
