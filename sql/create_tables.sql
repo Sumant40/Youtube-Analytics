@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS pipeline_runs (
 );
 
 CREATE TABLE IF NOT EXISTS channel_stats (
-    channel_id          VARCHAR,
+    channel_id          VARCHAR PRIMARY KEY,
     extracted_at        TIMESTAMP,
     subscriber_count    BIGINT,
-    total_video_count   INTEGER,
-    PRIMARY KEY (channel_id, extracted_at)
+    total_video_count   INTEGER
 );
+;

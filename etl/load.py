@@ -11,8 +11,8 @@ def get_engine():
     return create_engine(url)
 
 def load_videos(df: pd.DataFrame) -> dict:
-    """Upsert videos — insert if new, update stats if exists."""
-    engine   = get_engine()
+    """Insert videos, skip duplicates via ON CONFLICT DO NOTHING."""
+    engine  = get_engine()
     inserted = 0
     skipped  = 0
 
@@ -33,26 +33,13 @@ def load_videos(df: pd.DataFrame) -> dict:
                         ({", ".join(cols)})
                     VALUES
                         ({", ".join(":" + c for c in cols)})
-                    ON CONFLICT (video_id) DO UPDATE SET
-                        view_count       = EXCLUDED.view_count,
-                        like_count       = EXCLUDED.like_count,
-                        comment_count    = EXCLUDED.comment_count,
-                        engagement_rate  = EXCLUDED.engagement_rate,
-                        like_ratio       = EXCLUDED.like_ratio,
-                        days_since_publish = EXCLUDED.days_since_publish,
-                        extracted_at     = EXCLUDED.extracted_at
+                    ON CONFLICT (video_id) DO NOTHING
                 """)
                 result = conn.execute(stmt, row.to_dict())
                 if result.rowcount > 0:
-                    # check if it was a true insert or an update
-                    check = conn.execute(
-                        text("SELECT extracted_at FROM trending_videos WHERE video_id = :vid"),
-                        {"vid": row["video_id"]}
-                    ).fetchone()
-                    if check and check[0] == row["extracted_at"]:
-                        inserted += 1
-                    else:
-                        skipped += 1  # was updated, not new
+                    inserted += 1
+                else:
+                    skipped += 1
             except Exception as e:
                 logger.error(f"Insert error {row['video_id']}: {e}")
         conn.commit()
@@ -70,9 +57,13 @@ def load_channel_stats(df: pd.DataFrame):
                      subscriber_count, total_video_count)
                 VALUES (:channel_id, :extracted_at,
                         :subscriber_count, :total_video_count)
-                ON CONFLICT DO NOTHING
+                ON CONFLICT (channel_id) DO UPDATE SET
+                    extracted_at       = EXCLUDED.extracted_at,
+                    subscriber_count   = EXCLUDED.subscriber_count,
+                    total_video_count  = EXCLUDED.total_video_count
             """), row.to_dict())
         conn.commit()
+    logger.info(f"Channel stats upserted: {len(df)} channels")
 
 def log_pipeline_run(category, extracted,
                      inserted, skipped, status, error_msg=None):
