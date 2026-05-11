@@ -1,0 +1,36 @@
+"run_id","run_at","category","videos_extracted","videos_inserted","videos_skipped","status","error_msg"
+46,"2026-05-08 19:03:51.459255","Music",30,30,0,"success",NULL
+47,"2026-05-08 19:03:52.381436","Gaming",49,49,0,"success",NULL
+48,"2026-05-08 19:03:53.055775","People & Blogs",38,38,0,"success",NULL
+49,"2026-05-08 19:03:54.052662","Entertainment",50,50,0,"success",NULL
+50,"2026-05-08 19:03:56.066945","Science & Technology",37,37,0,"success",NULL
+51,"2026-05-08 19:04:29.426346","Music",30,0,30,"success",NULL
+52,"2026-05-08 19:04:30.17884","Gaming",49,0,49,"success",NULL
+53,"2026-05-08 19:04:30.954621","People & Blogs",38,0,38,"success",NULL
+54,"2026-05-08 19:04:31.773585","Entertainment",50,0,50,"success",NULL
+55,"2026-05-08 19:04:32.480875","Science & Technology",37,0,37,"success",NULL
+56,"2026-05-09 08:07:53.088284","Music",30,0,30,"success",NULL
+57,"2026-05-09 08:07:54.106153","Gaming",49,18,31,"success",NULL
+58,"2026-05-09 08:07:55.010929","People & Blogs",38,4,34,"success",NULL
+59,"2026-05-09 08:07:56.23471","Entertainment",50,6,44,"success",NULL
+60,"2026-05-09 08:07:57.245979","Science & Technology",38,6,32,"success",NULL
+61,"2026-05-09 17:14:35.797129","Music",30,5,25,"success",NULL
+62,"2026-05-09 17:14:36.755587","Gaming",49,23,26,"success",NULL
+63,"2026-05-09 17:14:37.629388","People & Blogs",36,1,35,"success",NULL
+64,"2026-05-09 17:14:38.439854","Entertainment",50,9,41,"success",NULL
+65,"2026-05-09 17:14:39.264621","Science & Technology",38,2,36,"success",NULL
+66,"2026-05-10 14:41:41.757673","Music",30,2,28,"success",NULL
+67,"2026-05-10 14:41:43.037222","Gaming",48,34,14,"success",NULL
+68,"2026-05-10 14:41:43.766947","People & Blogs",34,3,31,"success",NULL
+69,"2026-05-10 14:41:44.55914","Entertainment",50,8,42,"success",NULL
+70,"2026-05-10 14:41:45.362407","Science & Technology",38,2,36,"success",NULL
+71,"2026-05-10 19:12:26.361092","Music",30,3,27,"success",NULL
+72,"2026-05-10 19:12:28.182633","Gaming",49,21,28,"success",NULL
+73,"2026-05-10 19:12:30.016973","People & Blogs",33,3,30,"success",NULL
+74,"2026-05-10 19:12:31.847367","Entertainment",50,2,48,"success",NULL
+75,"2026-05-10 19:12:34.015151","Science & Technology",38,3,35,"success",NULL
+76,"2026-05-11 07:53:16.172807","Music",30,2,28,"success",NULL
+77,"2026-05-11 07:53:17.134754","Gaming",50,16,34,"success",NULL
+78,"2026-05-11 07:53:18.086495","People & Blogs",32,3,29,"success",NULL
+79,"2026-05-11 07:53:19.262821","Entertainment",50,3,47,"success",NULL
+80,"2026-05-11 07:53:20.126542","Science & Technology",37,0,37,"success",NULL
